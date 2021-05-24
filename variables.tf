@@ -93,3 +93,33 @@ variable "tag_GithubOrg" {
   default = "testing-github-org"
 }
 
+variable "s3bucket" {
+  type        = string
+  description = "terraform state s3 bucket"
+  default = ""
+}
+
+variable "s3bucketkey" {
+  type        = string
+  description = "terraform state s3 files name prefix"
+  default = ""
+}
+
+variable "vpc-subnet-cidr" {
+  default     = "10.0.0.0/16"
+  type        = string
+  description = "The VPC Subnet CIDR"
+}
+
+variable "private_subnets" {
+  default     = ["10.0.1.0/24", "10.0.2.0/24", "10.0.3.0/24"]
+  type        = list
+  description = "Private Subnet CIDR"
+}
+
+variable "public_subnets" {
+  default     = ["10.0.4.0/24", "10.0.5.0/24", "10.0.6.0/24"]
+  type        = list
+  description = "Public Subnet CIDR"
+}
+
