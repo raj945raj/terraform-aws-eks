@@ -96,13 +96,13 @@ variable "tag_GithubOrg" {
 variable "s3bucket" {
   type        = string
   description = "terraform state s3 bucket"
-  default = ""
+  default = "s3"
 }
 
 variable "s3bucketkey" {
   type        = string
   description = "terraform state s3 files name prefix"
-  default = ""
+  default = "s3/state"
 }
 
 variable "vpc-subnet-cidr" {
