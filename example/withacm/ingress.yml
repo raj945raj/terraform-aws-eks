@@ -1,0 +1,30 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: echo-v1-ingress
+  annotations:
+    alb.ingress.kubernetes.io/scheme: internet-facing
+    alb.ingress.kubernetes.io/target-type: ip
+    kubernetes.io/ingress.class: alb
+spec:
+  rules:
+    - host: demossl.codesecops.com
+      http:
+        paths:
+          - path: /demossl
+            pathType: Prefix
+            backend:
+              service:
+                name: echo-server-v1
+                port:
+                  number: 80
+    - host: demo.codesecops.com
+      http:
+	paths:
+          - path: /demo
+            pathType: Prefix
+            backend:
+              service:
+                name: echo-server-v2
+                port:
+                  number: 80

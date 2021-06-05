@@ -11,6 +11,7 @@ data "aws_eks_cluster_auth" "cluster" {
 }
 
 provider "kubernetes" {
+  alias = "eks"
   host                   = data.aws_eks_cluster.cluster.endpoint
   cluster_ca_certificate = base64decode(data.aws_eks_cluster.cluster.certificate_authority.0.data)
   token                  = data.aws_eks_cluster_auth.cluster.token
@@ -108,7 +109,7 @@ module "eks" {
   cluster_name    = local.cluster_name
   cluster_version = "1.20"
   subnets         = module.vpc.private_subnets
-
+oidc_provider_enabled = true
   tags = {
     Environment = var.tag_environment
     GithubRepo  = var.tag_GithubRepo
@@ -139,3 +140,4 @@ module "eks" {
   map_users                            = var.map_users
   map_accounts                         = var.map_accounts
 }
+
