@@ -109,7 +109,7 @@ module "eks" {
   cluster_name    = local.cluster_name
   cluster_version = "1.20"
   subnets         = module.vpc.private_subnets
-oidc_provider_enabled = true
+# oidc_provider_enabled = true
   tags = {
     Environment = var.tag_environment
     GithubRepo  = var.tag_GithubRepo
