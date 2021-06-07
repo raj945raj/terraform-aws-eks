@@ -22,7 +22,7 @@ variable "map_roles" {
 
   default = [
     {
-      rolearn  = "arn:aws:iam::66666666666:role/role1"
+      rolearn  = "arn:aws:iam::558811456770:role/aws-service-role/eks.amazonaws.com/AWSServiceRoleForAmazonEKS"
       username = "raj00565@gmail.com"
       groups   = ["system:masters"]
     },
@@ -65,7 +65,7 @@ variable "instance_type_2" {
 variable "cluster_name" {
   type        = string
   description = "Cluster Name"
-  default = "eks-testing"
+  default = "eks-demo"
 }
 
 
